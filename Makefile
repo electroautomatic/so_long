@@ -1,9 +1,9 @@
 CC = gcc
 CFLAGS = -g -Wall -Wextra -Werror
-LIBFT_DIR = ./libft
+LIBFT_DIR = ./libft/*.o
 LIBFT = ./libft/libft.a
 
-LIBFT_SRCS = $(shell find . -name '*.c')
+#LIBFT_SRCS = $(shell find . -name $(LIBFT_DIR))
 
 SRCMODULES_A = so_long.c ft_pars_map.c
 OBJMODULES_A = $(patsubst %.c,%.o,$(SRCMODULES_A))

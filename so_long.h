@@ -8,9 +8,9 @@
 # include <unistd.h>
 # include "libft/libft.h"
 
-# define	FLOOR 	"./grass-32.xpm"
-# define	WALL 	"./wall-32.xpm"
-# define	PlAYER 	"./player_1.xpm"
+# define	FLOOR 	"s/desert-32.xpm"
+# define	WALL 	"s/wall-32.xpm"
+# define	PLAYER 	"s/player_1.xpm"
 
 typedef struct s_map
 {
@@ -22,11 +22,12 @@ typedef struct s_map
 	void	*img;
 }				t_map;
 
-// typedef struct s_player
-// {
-// 	int	x;
-// 	int	y;
-// }		t_player;
+typedef struct s_player
+{
+	int		x;
+	int		y;
+	void	*img;
+}		t_player;
 
 // typedef struct s_enemy
 // {
@@ -49,7 +50,7 @@ typedef struct s_map
 typedef struct s_data
 {
 	t_map		map;
-	// t_player	*plaer;
+	t_player	player;
 	// t_enemy		*enmy;
 	// t_exit		*exit;
 	// t_coins		*coins;

@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   functions.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 18:14:12 by mbalman           #+#    #+#             */
-/*   Updated: 2021/10/03 19:31:31 by mbalman          ###   ########.fr       */
+/*   Updated: 2021/10/06 17:40:13 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	get_next_line(int fd, char **line)
+void	ft_pars_1(t_data *data)
 {
-	int		rd;
-	int		i;
-	char	ch;
-	char	*buffer;
-
-	rd = 1;
-	i = 0;
-	ch = 0;
-	buffer = malloc(100000);
-	*line = buffer;
-	while ((rd > 0) && (ch != '\n'))
-	{
-		rd = read(fd, &ch, 1);
-		buffer[i++] = ch;
-	}
-	buffer[i] = '\0';
-	return (rd);
+	mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->map.img, l * 32, h * 32);
 }
