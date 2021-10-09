@@ -6,7 +6,7 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 18:14:12 by mbalman           #+#    #+#             */
-/*   Updated: 2021/10/08 18:13:41 by mbalman          ###   ########.fr       */
+/*   Updated: 2021/10/09 17:25:21 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ void	ft_enemy_animation(t_data *data)
 	}
 }
 
+// void	ft_player_animation(t_data *data)
+// {
+	
+// }
 
 int	ft_render(t_data *data)
 {

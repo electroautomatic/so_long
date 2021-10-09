@@ -10,7 +10,8 @@
 
 # define	FLOOR 	"s/grass.xpm"
 # define	WALL 	"s/wall.xpm"
-# define	PLAYER 	"s/player_1.xpm"
+# define	PLAYER_L 	"s/player/p_left.xpm"
+# define	PLAYER_R 	"s/player/p_right.xpm"
 # define	COIN_1	"s/coins/Coin1.xpm"
 # define	COIN_2	"s/coins/Coin2.xpm"
 # define	COIN_3	"s/coins/Coin3.xpm"
@@ -41,6 +42,8 @@ typedef struct s_player
 	int		y;
 	int		steps;
 	void	*img;
+	void	*img_left;
+	void	*img_right;
 }		t_player;
 
 typedef struct s_enemy

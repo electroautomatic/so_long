@@ -6,7 +6,7 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 17:36:41 by mbalman           #+#    #+#             */
-/*   Updated: 2021/10/08 18:08:46 by mbalman          ###   ########.fr       */
+/*   Updated: 2021/10/09 17:24:47 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,9 @@ void	ft_img_inint(t_data *data)
 	int		w;
 	int		h;
 
-	data->player.img = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER, &w, &h);
+	data->player.img_left = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER_L, &w, &h);
+	data->player.img_right = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER_R, &w, &h);
+	data->player.img = data->player.img_right;
 	data->map.img_floor = mlx_xpm_file_to_image(data->mlx_ptr, FLOOR, &w, &h);
 	data->map.img_wall = mlx_xpm_file_to_image(data->mlx_ptr, WALL, &w, &h);
 	data->coins.img_1 = mlx_xpm_file_to_image(data->mlx_ptr, COIN_1, &w, &h);
