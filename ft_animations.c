@@ -6,7 +6,7 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 18:14:12 by mbalman           #+#    #+#             */
-/*   Updated: 2021/10/09 17:25:21 by mbalman          ###   ########.fr       */
+/*   Updated: 2021/10/10 14:26:39 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,18 @@ void	ft_enemy_animation(t_data *data)
 	}
 }
 
-// void	ft_player_animation(t_data *data)
-// {
-	
-// }
+void	ft_render_1(int h, int l, t_data *data)
+{
+	if (data->map.map_pars[h][l] == 'C')
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
+					data->coins.img, l * 32, h * 32);
+	if (data->map.map_pars[h][l] == 'E' && data->coins.count == 0)
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
+					data->exit.img_exit, l * 32, h * 32);
+	if (data->map.map_pars[h][l] == 'Z')
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
+					data->enmy.img, l * 32, h * 32);
+}
 
 int	ft_render(t_data *data)
 {
@@ -73,34 +81,23 @@ int	ft_render(t_data *data)
 		while (l != data->map.map_size_l)
 		{
 			if (data->map.map_pars[h][l] != '1')
-			{
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
 					data->map.img_floor, l * 32, h * 32);
-			}
 			else if (data->map.map_pars[h][l] == '1')
-			{
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
 					data->map.img_wall, l * 32, h * 32);
-			}
-			if (data->map.map_pars[h][l] == 'C')
-			{
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
-					data->coins.img, l * 32, h * 32);
-			}
-			if (data->map.map_pars[h][l] == 'E' && data->coins.count == 0)
-			{
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
-					data->exit.img_exit, l * 32, h * 32);
-			}
-			if (data->map.map_pars[h][l] == 'Z')
-			{
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
-					data->enmy.img, l * 32, h * 32);
-			}
+			ft_render_1(h, l, data);
 			l++;
 		}
 		l = 0;
 		h++;
 	}
+	return (0);
+}
+
+int	ft_player_action(t_data *data)
+{	
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player.img, \
+		data->player.x, data->player.y);
 	return (0);
 }

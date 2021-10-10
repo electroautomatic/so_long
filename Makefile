@@ -5,7 +5,7 @@ LIBFT = ./libft/libft.a
 
 #LIBFT_SRCS = $(shell find . -name $(LIBFT_DIR))
 
-SRCMODULES_A = so_long.c ft_parsing.c ft_animations.c ft_actions.c
+SRCMODULES_A = so_long.c ft_parsing.c ft_animations.c ft_actions.c img_init.c map_init.c errors.c
 OBJMODULES_A = $(patsubst %.c,%.o,$(SRCMODULES_A))
 
 all : so_long

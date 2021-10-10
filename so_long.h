@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/10 16:20:01 by mbalman           #+#    #+#             */
+/*   Updated: 2021/10/10 17:36:23 by mbalman          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -22,8 +34,8 @@
 # define	COIN_8	"s/coins/Coin8.xpm"
 # define	COIN_9	"s/coins/Coin9.xpm"
 # define	EXIT	"s/exit.xpm"
-// # define	ENEMY	"s/enemies/Enemies2.xpm"
-// # define	ENEMY	"s/enemies/Enemies3.xpm"
+# define	ENEMY_2	"s/enemies/Enemies2.xpm"
+# define	ENEMY_3	"s/enemies/Enemies3.xpm"
 
 typedef struct s_map
 {
@@ -34,6 +46,7 @@ typedef struct s_map
 	char	*ing_pach_wall;
 	void	*img_wall;
 	void	*img_floor;
+	int		flag_error;
 }				t_map;
 
 typedef struct s_player
@@ -44,6 +57,7 @@ typedef struct s_player
 	void	*img;
 	void	*img_left;
 	void	*img_right;
+	int		count;
 }		t_player;
 
 typedef struct s_enemy
@@ -75,6 +89,7 @@ typedef struct s_exit
 	int		x;
 	int		y;
 	void	*img_exit;
+	int		count;
 }				t_exit;
 
 typedef struct s_data
@@ -88,12 +103,13 @@ typedef struct s_data
 	void		*win_ptr;
 	int			x;
 	int			y;
-	}			t_data;
+}				t_data;
 
 int		get_next_line(int fd, char **line);
 void	ft_map_volidation(int argc, char **argv, t_data *data);
 void	ft_pars_map(char **argv, t_data *data);
 void	ft_img_inint(t_data *data);
+void	ft_map_inint(t_data *data);
 
 void	ft_coin_animation(t_data *data);
 void	ft_enemy_animation(t_data *data);
@@ -101,5 +117,9 @@ int		ft_render(t_data *data);
 
 int		press_key(int key, t_data *data);
 int		mouse_clik(t_data *data);
+
+int		ft_player_action(t_data *data);
+
+void	ft_check_map(t_data *data);
 
 #endif

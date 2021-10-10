@@ -6,7 +6,7 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 17:36:41 by mbalman           #+#    #+#             */
-/*   Updated: 2021/10/09 17:24:47 by mbalman          ###   ########.fr       */
+/*   Updated: 2021/10/10 20:41:49 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,21 @@ int	get_next_line(int fd, char **line)
 	return (rd);
 }
 
+void	ft_chek_name_map(char **argv)
+{
+	int	l;
+
+	l = ft_strlen(argv[1]);
+	if (argv[1][l - 1 ] == 'r' && argv[1][l - 2] == 'e' \
+	&& argv[1][l - 3] == 'b' && argv[1][l - 4] == '.')
+		return ;
+	else
+	{
+		printf("Error Bad map name\n");
+		exit (0);
+	}
+}
+
 void	ft_map_volidation(int argc, char **argv, t_data *data)
 {
 	int		fd;
@@ -43,9 +58,10 @@ void	ft_map_volidation(int argc, char **argv, t_data *data)
 	data->map.map_size_l = 0;
 	if (argc != 2)
 	{	
-		printf("Error\n");
+		printf("Error arguments\n");
 		exit(0);
 	}
+	ft_chek_name_map(argv);
 	end_map = 1;
 	line = NULL;
 	fd = open(argv[1], O_RDONLY);
@@ -71,36 +87,20 @@ void	ft_pars_map(char **argv, t_data *data)
 	line = NULL;
 	data->map.map_pars = malloc(sizeof(char *) * data->map.map_size_h);
 	fd = open(argv[1], O_RDONLY);
+	// if (fd == NULL)
+	// {
+	// 	printf("Error map not found\n");
+	// 	exit (0);
+	// }
 	while (end_map)
 	{
 		end_map = get_next_line(fd, &line);
+		if ((data->map.map_size_l + 1) != ft_strlen(line))
+		{
+			printf("Error count symbol in line\n");
+			exit (0);
+		}
 		data->map.map_pars[i] = line;
 		i++;
 	}	
-}
-
-void	ft_img_inint(t_data *data)
-{
-	int		w;
-	int		h;
-
-	data->player.img_left = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER_L, &w, &h);
-	data->player.img_right = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER_R, &w, &h);
-	data->player.img = data->player.img_right;
-	data->map.img_floor = mlx_xpm_file_to_image(data->mlx_ptr, FLOOR, &w, &h);
-	data->map.img_wall = mlx_xpm_file_to_image(data->mlx_ptr, WALL, &w, &h);
-	data->coins.img_1 = mlx_xpm_file_to_image(data->mlx_ptr, COIN_1, &w, &h);
-	data->coins.img_2 = mlx_xpm_file_to_image(data->mlx_ptr, COIN_2, &w, &h);
-	data->coins.img_3 = mlx_xpm_file_to_image(data->mlx_ptr, COIN_3, &w, &h);
-	data->coins.img_4 = mlx_xpm_file_to_image(data->mlx_ptr, COIN_4, &w, &h);
-	data->coins.img_5 = mlx_xpm_file_to_image(data->mlx_ptr, COIN_5, &w, &h);
-	data->coins.img_6 = mlx_xpm_file_to_image(data->mlx_ptr, COIN_6, &w, &h);
-	data->coins.img_7 = mlx_xpm_file_to_image(data->mlx_ptr, COIN_7, &w, &h);
-	data->coins.img_8 = mlx_xpm_file_to_image(data->mlx_ptr, COIN_8, &w, &h);
-	data->coins.img_9 = mlx_xpm_file_to_image(data->mlx_ptr, COIN_9, &w, &h);
-	data->coins.img = data->coins.img_5;
-	data->exit.img_exit = mlx_xpm_file_to_image(data->mlx_ptr, EXIT, &w, &h);
-	data->enmy.img_1 = mlx_xpm_file_to_image(data->mlx_ptr, "s/enemies/Enemies2.xpm", &w, &h);
-	data->enmy.img_2 = mlx_xpm_file_to_image(data->mlx_ptr, "s/enemies/Enemies3.xpm", &w, &h);
-	data->enmy.img = data->enmy.img_1;
 }
