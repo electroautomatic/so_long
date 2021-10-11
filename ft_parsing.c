@@ -6,7 +6,7 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 17:36:41 by mbalman           #+#    #+#             */
-/*   Updated: 2021/10/10 20:41:49 by mbalman          ###   ########.fr       */
+/*   Updated: 2021/10/11 13:13:12 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,15 @@ void	ft_chek_name_map(char **argv)
 	}
 }
 
+void	ft_chek_map_evalible(int fd)
+{
+	if (fd == -1)
+	{
+		printf("Error\nMap file not found\n");
+		exit (0);
+	}
+}
+
 void	ft_map_volidation(int argc, char **argv, t_data *data)
 {
 	int		fd;
@@ -65,6 +74,7 @@ void	ft_map_volidation(int argc, char **argv, t_data *data)
 	end_map = 1;
 	line = NULL;
 	fd = open(argv[1], O_RDONLY);
+	ft_chek_map_evalible(fd);
 	while (end_map)
 	{
 		end_map = get_next_line(fd, &line);
@@ -87,11 +97,6 @@ void	ft_pars_map(char **argv, t_data *data)
 	line = NULL;
 	data->map.map_pars = malloc(sizeof(char *) * data->map.map_size_h);
 	fd = open(argv[1], O_RDONLY);
-	// if (fd == NULL)
-	// {
-	// 	printf("Error map not found\n");
-	// 	exit (0);
-	// }
 	while (end_map)
 	{
 		end_map = get_next_line(fd, &line);

@@ -6,7 +6,7 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 17:36:59 by mbalman           #+#    #+#             */
-/*   Updated: 2021/10/11 19:48:44 by mbalman          ###   ########.fr       */
+/*   Updated: 2021/10/11 19:27:38 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ int	ft_frame(t_data *data)
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	ft_render(data);
 	ft_player_action(data);
+	ft_coin_animation(data);
+	ft_enemy_animation(data);
+	ft_render_steps(data);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 16:20:01 by mbalman           #+#    #+#             */
-/*   Updated: 2021/10/10 17:36:23 by mbalman          ###   ########.fr       */
+/*   Updated: 2021/10/11 19:18:54 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,29 @@
 # define SO_LONG_H
 
 # include <stdio.h>
-# include <mlx.h>
+//# include <mlx.h>
+# include "minilibx/mlx.h"
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include "libft/libft.h"
 
-# define	FLOOR 	"s/grass.xpm"
-# define	WALL 	"s/wall.xpm"
-# define	PLAYER_L 	"s/player/p_left.xpm"
-# define	PLAYER_R 	"s/player/p_right.xpm"
-# define	COIN_1	"s/coins/Coin1.xpm"
-# define	COIN_2	"s/coins/Coin2.xpm"
-# define	COIN_3	"s/coins/Coin3.xpm"
-# define	COIN_4	"s/coins/Coin4.xpm"
-# define	COIN_5	"s/coins/Coin5.xpm"
-# define	COIN_6	"s/coins/Coin6.xpm"
-# define	COIN_7	"s/coins/Coin7.xpm"
-# define	COIN_8	"s/coins/Coin8.xpm"
-# define	COIN_9	"s/coins/Coin9.xpm"
-# define	EXIT	"s/exit.xpm"
-# define	ENEMY_2	"s/enemies/Enemies2.xpm"
-# define	ENEMY_3	"s/enemies/Enemies3.xpm"
+# define FLOOR	"s/grass.xpm"
+# define WALL	"s/wall.xpm"
+# define PLAYER_L "s/player/p_left.xpm"
+# define PLAYER_R "s/player/p_right.xpm"
+# define COIN_1	"s/coins/Coin1.xpm"
+# define COIN_2	"s/coins/Coin2.xpm"
+# define COIN_3	"s/coins/Coin3.xpm"
+# define COIN_4	"s/coins/Coin4.xpm"
+# define COIN_5	"s/coins/Coin5.xpm"
+# define COIN_6	"s/coins/Coin6.xpm"
+# define COIN_7	"s/coins/Coin7.xpm"
+# define COIN_8	"s/coins/Coin8.xpm"
+# define COIN_9	"s/coins/Coin9.xpm"
+# define EXIT	"s/exit.xpm"
+# define ENEMY_2	"s/enemies/Enemies2.xpm"
+# define ENEMY_3	"s/enemies/Enemies3.xpm"
 
 typedef struct s_map
 {

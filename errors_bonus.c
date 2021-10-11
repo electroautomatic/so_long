@@ -6,7 +6,7 @@
 /*   By: mbalman <mbalman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 16:43:56 by mbalman           #+#    #+#             */
-/*   Updated: 2021/10/11 19:49:08 by mbalman          ###   ########.fr       */
+/*   Updated: 2021/10/11 19:26:13 by mbalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	ft_check_map_simbol(t_data *data)
 			&& data->map.map_pars[h][l] != '0' \
 			&& data->map.map_pars[h][l] != 'P' \
 			&& data->map.map_pars[h][l] != 'E' \
-			&& data->map.map_pars[h][l] != 'C')
+			&& data->map.map_pars[h][l] != 'C' \
+			&& data->map.map_pars[h][l] != 'Z')
 			{	
 				printf("Error\n %c is not correct map symbol\n", \
 					data->map.map_pars[h][l]);
